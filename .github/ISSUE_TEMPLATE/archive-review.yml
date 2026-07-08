@@ -1,0 +1,104 @@
+name: Archive or removal review
+description: Human review before archiving/removing a project from active OSL status
+title: "Archive/removal review: <project name>"
+labels:
+  - "type: archive-review"
+  - "status: needs-triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form before archiving an OSL-controlled repository or removing
+        an external project from active OSL lists. Do not archive/remove solely
+        from bot output.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: dropdown
+    id: current_stage
+    attributes:
+      label: Current stage
+      options:
+        - Proof of Concept (PoC)
+        - Incubation
+        - Graduated
+        - Paused / at-risk
+        - Inactive
+        - Unknown
+    validations:
+      required: true
+
+  - type: input
+    id: prior_review
+    attributes:
+      label: Prior maintenance review issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: ping_timeline
+    attributes:
+      label: Timeline of pings and responses
+      description: Include Day 0/30/60/90 checkpoints and all maintainer responses.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reasons
+    attributes:
+      label: Reasons for archive/removal consideration
+    validations:
+      required: true
+
+  - type: dropdown
+    id: repo_control
+    attributes:
+      label: Repository control
+      options:
+        - OSL-controlled repository
+        - External repository
+        - Unknown / needs confirmation
+    validations:
+      required: true
+
+  - type: dropdown
+    id: proposed_outcome
+    attributes:
+      label: Proposed outcome
+      options:
+        - Archive OSL-controlled repository
+        - Remove from active public OSL lists
+        - Mark inactive but keep historical listing
+        - Pause and review later
+        - Keep active after remediation
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: textarea
+    id: human_approvers
+    attributes:
+      label: Human approvers
+      description: List OSL reviewers/maintainers who approve this outcome.
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes
+      description: Include website updates, acknowledgement updates, or repository transfer considerations.
+    validations:
+      required: false

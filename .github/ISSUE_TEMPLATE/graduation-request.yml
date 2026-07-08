@@ -1,0 +1,177 @@
+name: Graduation request
+description: Request graduation from the OSL Incubator Program
+title: "Graduation request: <project name>"
+labels:
+  - "type: graduation-request"
+  - "status: needs-triage"
+  - "stage: incubation"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form when an incubated project has completed its milestones and
+        is ready for graduation review. Scientific projects should include
+        pyOpenSci, rOpenSci, or equivalent review evidence where required.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: input
+    id: docs
+    attributes:
+      label: Website or documentation URL
+    validations:
+      required: false
+
+  - type: dropdown
+    id: current_stage
+    attributes:
+      label: Current stage
+      options:
+        - Incubation
+        - Proof of Concept (PoC)
+        - Paused / at-risk
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: input
+    id: original_issue
+    attributes:
+      label: Original application or incubation issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: completed_milestones
+    attributes:
+      label: Completed milestones
+      description: Link each milestone to evidence where possible.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Current maintainer list and roles
+    validations:
+      required: true
+
+  - type: textarea
+    id: governance
+    attributes:
+      label: Governance and decision-making evidence
+      description: Link governance docs, maintainer roles, decision process, or continuity plan.
+    validations:
+      required: true
+
+  - type: textarea
+    id: documentation
+    attributes:
+      label: Documentation evidence
+      description: Link user docs, developer docs, examples, tutorials, or API docs.
+    validations:
+      required: true
+
+  - type: textarea
+    id: contribution_process
+    attributes:
+      label: Contribution process
+      description: Link CONTRIBUTING, starter issues, review expectations, and public discussion paths.
+    validations:
+      required: true
+
+  - type: textarea
+    id: releases
+    attributes:
+      label: Release, versioning, or publication evidence
+    validations:
+      required: true
+
+  - type: textarea
+    id: adoption
+    attributes:
+      label: Adoption, user, citation, deployment, pilot, or community evidence
+      description: Provide evidence where available, or explain why not applicable.
+    validations:
+      required: true
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security reporting evidence
+      description: Link SECURITY.md, advisory policy, or maintainer contact path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintenance_plan
+    attributes:
+      label: Maintenance plan
+      description: Describe ongoing maintenance, review capacity, roadmap, and risk management.
+    validations:
+      required: true
+
+  - type: textarea
+    id: future_roadmap
+    attributes:
+      label: Future roadmap
+    validations:
+      required: true
+
+  - type: textarea
+    id: repository_location
+    attributes:
+      label: Desired repository location after graduation
+      description: State whether the repository stays under OSL, moves, or remains external.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scientific_review
+    attributes:
+      label: Scientific review evidence, if applicable
+      description: Link pyOpenSci, rOpenSci, or equivalent review evidence. If not applicable, write N/A.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acknowledgement_plan
+    attributes:
+      label: README/docs acknowledgement update plan
+      description: How will public docs be updated if graduation is approved?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The project license remains OSI-approved.
+          required: true
+        - label: The public LICENSE file remains present.
+          required: true
+        - label: The Code of Conduct remains present and includes a reporting path.
+          required: true
+        - label: Maintainers are reachable and can continue maintaining the project.
+          required: true
+        - label: The project is active or stable with an explicit maintenance plan.
+          required: true
+        - label: README/docs status acknowledgement will be updated if graduation is approved.
+          required: true
+        - label: If moving outside OSL, maintainers understand OSL may remove or update public listings if the project becomes inactive, unsafe, closed-source, or unreachable.
+          required: true
+        - label: I understand OSL does not guarantee GSoC slots, funding, contributors, interns, mentors, grants, external review acceptance, or long-term maintenance after graduation.
+          required: true

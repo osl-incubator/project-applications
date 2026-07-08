@@ -1,0 +1,40 @@
+name: Application intake
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Intake comment and labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(label => label.name);
+            const isApplication = labels.includes('type: poc-application') || labels.includes('type: incubation-application');
+            if (!isApplication) return;
+
+            if (context.payload.action === 'opened') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Thanks for opening an OSL Incubator Program application.\n\nAn OSL reviewer will check required evidence, including OSI-approved license, Code of Conduct, maintainer contact, public development, roadmap, and project fit.\n\nReminder: incubation does not guarantee GSoC slots, funding, contributors, interns, mentors, grants, external review acceptance, or long-term OSL maintenance. If accepted, please add the OSL incubation acknowledgement to your README/docs.`
+              });
+            }
+
+            if (!labels.includes('status: needs-triage')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['status: needs-triage']
+              });
+            }

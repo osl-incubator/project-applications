@@ -1,0 +1,29 @@
+name: Validate
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Shell syntax
+        run: |
+          find scripts -name '*.sh' -print -exec bash -n {} \;
+      - name: Python syntax
+        run: |
+          find scripts -name '*.py' -print -exec python -m py_compile {} \;
+      - name: Validate project records if present
+        run: |
+          if [ -f data/projects.json ]; then
+            python scripts/validate-project-records.py data/projects.json
+          fi
+          python scripts/validate-project-records.py data/projects.example.json

@@ -1,0 +1,126 @@
+name: Stage-change request
+description: Request a lifecycle stage change, such as PoC to Incubation
+title: "Stage-change request: <project name>"
+labels:
+  - "type: stage-change"
+  - "status: needs-triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request a lifecycle stage change. Provide links to the
+        original application, completed milestones, and evidence for the
+        requested stage.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: dropdown
+    id: current_stage
+    attributes:
+      label: Current stage
+      options:
+        - Proof of Concept (PoC)
+        - Incubation
+        - Graduated
+        - Paused / at-risk
+        - Inactive / archived
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: dropdown
+    id: requested_stage
+    attributes:
+      label: Requested stage
+      options:
+        - Proof of Concept (PoC)
+        - Incubation
+        - Graduated
+        - Paused / at-risk
+        - Inactive / archived
+        - Reactivated
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: input
+    id: prior_issue
+    attributes:
+      label: Prior application or review issue
+      description: Link to the original application, review, or decision issue.
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: textarea
+    id: completed_milestones
+    attributes:
+      label: Completed milestones
+      description: List completed PoC/incubation milestones and evidence links.
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence for requested stage
+      description: Provide links to docs, issues, releases, contributor work, governance, review, or other evidence.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainer_status
+    attributes:
+      label: Maintainer status
+      description: Current maintainers, roles, availability, and contact path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: new_roadmap
+    attributes:
+      label: New roadmap or next milestones
+      description: Describe the next review period or post-change plan.
+    validations:
+      required: true
+
+  - type: textarea
+    id: blockers
+    attributes:
+      label: Blockers or risks
+      description: Include known gaps, capacity concerns, or support needed.
+    validations:
+      required: false
+
+  - type: textarea
+    id: mentor_notes
+    attributes:
+      label: OSL mentor/reviewer notes
+      description: Add notes from OSL mentors/reviewers if available.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: License and Code of Conduct requirements remain satisfied.
+          required: true
+        - label: At least one maintainer is reachable for review.
+          required: true
+        - label: README/docs acknowledgement will be updated if the stage change is approved.
+          required: true
+        - label: I understand OSL does not guarantee funding, GSoC slots, contributors, interns, mentors, grants, external review acceptance, or long-term maintenance.
+          required: true

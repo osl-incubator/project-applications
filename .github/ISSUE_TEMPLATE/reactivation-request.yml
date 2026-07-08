@@ -1,0 +1,117 @@
+name: Reactivation request
+description: Request reactivation for a paused, inactive, or archived project
+title: "Reactivation request: <project name>"
+labels:
+  - "type: reactivation-request"
+  - "status: needs-triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to request reactivation after a project was paused,
+        marked inactive, removed from active lists, or archived.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: input
+    id: prior_issue
+    attributes:
+      label: Prior pause, archive, or maintenance review issue
+    validations:
+      required: true
+
+  - type: textarea
+    id: what_changed
+    attributes:
+      label: What changed?
+      description: Explain what has been restored or improved since the prior decision.
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License link
+    validations:
+      required: true
+
+  - type: input
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct link
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Maintainers
+      description: List active maintainers, roles, and contact path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintenance_plan
+    attributes:
+      label: Maintenance plan
+      description: How will the project avoid returning to inactive/at-risk status?
+    validations:
+      required: true
+
+  - type: textarea
+    id: roadmap
+    attributes:
+      label: Roadmap or next milestones
+    validations:
+      required: true
+
+  - type: textarea
+    id: acknowledgement_update
+    attributes:
+      label: Acknowledgement update
+      description: How will README/docs reflect the restored status if approved?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: requested_stage
+    attributes:
+      label: Requested stage
+      options:
+        - Proof of Concept (PoC)
+        - Incubation
+        - Graduated
+        - Active external listing
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The project has an OSI-approved open-source license and public LICENSE file.
+          required: true
+        - label: The project has a Code of Conduct with a reporting path.
+          required: true
+        - label: At least one maintainer is reachable and can participate in review.
+          required: true
+        - label: The repository is public, reachable, and not archived unless OSL approves unarchiving.
+          required: true
+        - label: README/docs acknowledgement will be updated if reactivation is approved.
+          required: true
+        - label: I understand OSL does not guarantee funding, GSoC slots, contributors, interns, mentors, grants, external review acceptance, or long-term maintenance.
+          required: true

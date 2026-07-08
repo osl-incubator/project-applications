@@ -1,0 +1,220 @@
+name: Incubation application
+description: Apply for the OSL Incubator Program incubation stage
+title: "Incubation application: <project name>"
+labels:
+  - "type: incubation-application"
+  - "status: needs-triage"
+  - "stage: incubation"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for applying to the OSL Incubator Program.
+
+        Please provide links to evidence wherever possible. Incubation is a
+        structured growth pathway, not a guarantee of funding, GSoC slots,
+        interns, contributors, mentors, grants, external review acceptance, or
+        long-term OSL maintenance.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+      description: Link to the public repository or proposal repository.
+    validations:
+      required: true
+
+  - type: input
+    id: docs
+    attributes:
+      label: Website or documentation URL
+    validations:
+      required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Short description
+      description: What does the project do and who is it for?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alignment
+    attributes:
+      label: Alignment with OSL
+      description: How does the project align with open science, research, education, public-interest technology, open-source infrastructure, or another OSL value?
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License link
+      description: Link to the OSI-approved license and public LICENSE file.
+    validations:
+      required: true
+
+  - type: input
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct link
+      description: Link to the Code of Conduct with a reporting path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Maintainers
+      description: List maintainer names, GitHub handles, roles, and contact path.
+    validations:
+      required: true
+
+  - type: input
+    id: communication
+    attributes:
+      label: Public communication channel or contact path
+      description: Link to issue tracker, discussions, chat, forum, email, or other public path.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: maintenance_status
+    attributes:
+      label: Current maintenance status
+      options:
+        - Active
+        - Maintained / stable
+        - Restarting / needs structure
+        - Temporarily paused
+        - Other / explain below
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintenance_context
+    attributes:
+      label: Maintenance context
+      description: Explain current status, recent activity, and any known gaps.
+    validations:
+      required: true
+
+  - type: textarea
+    id: roadmap
+    attributes:
+      label: Roadmap and milestones
+      description: Link to or describe milestones for the next 3-6 months.
+    validations:
+      required: true
+
+  - type: textarea
+    id: contributor_readiness
+    attributes:
+      label: Contributor readiness
+      description: Link contribution guide, starter issues, mentoring plan, or explain current status.
+    validations:
+      required: true
+
+  - type: textarea
+    id: quality
+    attributes:
+      label: Documentation, tests, releases, and quality practices
+      description: Link documentation, tests, examples, release notes, technical overview, or plans.
+    validations:
+      required: true
+
+  - type: textarea
+    id: governance
+    attributes:
+      label: Governance and maintainer model
+      description: Decision-making, maintainer roles, continuity plan, or current gaps.
+    validations:
+      required: true
+
+  - type: input
+    id: security
+    attributes:
+      label: Security policy or vulnerability reporting URL
+    validations:
+      required: false
+
+  - type: textarea
+    id: users
+    attributes:
+      label: Users, adopters, citations, deployments, pilots, or community interest
+      description: Provide evidence if available, or write N/A.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scientific_type
+    attributes:
+      label: Scientific software review path
+      options:
+        - Not scientific software / not applicable
+        - Scientific Python - pyOpenSci likely in scope
+        - Scientific Python - pyOpenSci likely not in scope
+        - Scientific R - rOpenSci likely in scope
+        - Scientific R - rOpenSci likely not in scope
+        - Other scientific software - equivalent review needed
+        - Unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: review_path
+    attributes:
+      label: Scientific review plan, if applicable
+      description: Describe pyOpenSci, rOpenSci, or equivalent review plan. If N/A, write N/A.
+    validations:
+      required: true
+
+  - type: textarea
+    id: gsoc_internship
+    attributes:
+      label: GSoC/internship readiness, if applicable
+      description: Ideas, mentors, scoped tasks, issue links, and review capacity. If N/A, write N/A.
+    validations:
+      required: true
+
+  - type: textarea
+    id: osl_support
+    attributes:
+      label: Expected OSL support
+      description: What support do you need from OSL during incubation?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The project uses an OSI-approved open-source license.
+          required: true
+        - label: The repository includes a public LICENSE file.
+          required: true
+        - label: The project has a Code of Conduct with a reporting path.
+          required: true
+        - label: At least one maintainer is reachable and can participate in incubation.
+          required: true
+        - label: The project has a public repository or public proposal repository.
+          required: true
+        - label: The project has a public issue tracker, project board, discussion channel, or documented contact path.
+          required: true
+        - label: Maintainers are willing to communicate with OSL mentors/reviewers during incubation.
+          required: true
+        - label: The project can be maintained in public and can welcome contributors respectfully.
+          required: true
+        - label: If accepted, we will acknowledge OSL incubation status in README/docs where applicable.
+          required: true
+        - label: I understand OSL does not guarantee GSoC slots, funding, contributors, interns, mentors, grants, external review acceptance, or long-term maintenance.
+          required: true

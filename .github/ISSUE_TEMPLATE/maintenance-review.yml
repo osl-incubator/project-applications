@@ -1,0 +1,106 @@
+name: Maintenance review
+description: Review a project maintenance, safety, or lifecycle concern
+title: "Maintenance review: <project name>"
+labels:
+  - "type: maintenance-review"
+  - "status: needs-triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form to document concerns before marking a project at risk,
+        paused, inactive, removed from public lists, or archived. Human review is
+        required for lifecycle decisions.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: dropdown
+    id: current_stage
+    attributes:
+      label: Current stage
+      options:
+        - Proof of Concept (PoC)
+        - Incubation
+        - Graduated
+        - Paused / at-risk
+        - Inactive / archived
+        - Unknown
+    validations:
+      required: true
+
+  - type: dropdown
+    id: concern_type
+    attributes:
+      label: Concern type
+      options:
+        - Missing license
+        - Missing Code of Conduct
+        - Repo archived
+        - Repo unreachable
+        - Maintainers unreachable
+        - Stale milestones
+        - No activity and no stable note
+        - Unsafe behavior
+        - Missing acknowledgement
+        - Broken docs/website
+        - Scientific review blocked
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: detected_by
+    attributes:
+      label: Detected by
+      options:
+        - Bot
+        - Human reviewer
+        - Maintainer
+        - Contributor/user report
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Link logs, checks, repository pages, prior pings, or reports.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers_to_ping
+    attributes:
+      label: Maintainers to ping
+      description: List GitHub handles, teams, or contact paths.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_remediation
+    attributes:
+      label: Suggested remediation
+      description: What should be fixed, clarified, or restored?
+    validations:
+      required: true
+
+  - type: textarea
+    id: review_timeline
+    attributes:
+      label: Review timeline
+      description: Include Day 0/30/60/90 checkpoints or a project-specific timeline.
+    validations:
+      required: true

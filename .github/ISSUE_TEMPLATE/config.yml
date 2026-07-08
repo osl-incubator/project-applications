@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Open Science Labs website
+    url: https://opensciencelabs.org/
+    about: Learn more about OSL.
+  - name: OSL Incubator Program
+    url: https://opensciencelabs.org/projects/incubation/
+    about: Read the public incubation policy and criteria.
+  - name: OSL Discord
+    url: https://opensciencelabs.org/discord
+    about: Join the OSL community.
+  - name: Email OSL
+    url: mailto:team@opensciencelabs.org
+    about: Contact OSL if GitHub is not accessible to you.

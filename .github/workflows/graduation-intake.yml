@@ -1,0 +1,39 @@
+name: Graduation intake
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  graduation-intake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Graduation comment and labels
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const labels = issue.labels.map(label => label.name);
+            if (!labels.includes('type: graduation-request')) return;
+
+            if (context.payload.action === 'opened') {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                body: `Thanks for opening an OSL Incubator Program graduation request.\n\nPlease provide evidence links for completed milestones, maintenance, governance, documentation, contributor process, releases, security reporting, and adoption or usefulness where available. Scientific projects should include pyOpenSci, rOpenSci, or equivalent review evidence when relevant.\n\nA public comment period may apply. If graduation is approved, please update README/docs with the graduation acknowledgement. OSL does not guarantee future funding, GSoC slots, contributors, mentors, or long-term maintenance.`
+              });
+            }
+
+            if (!labels.includes('status: needs-triage')) {
+              await github.rest.issues.addLabels({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: issue.number,
+                labels: ['status: needs-triage']
+              });
+            }

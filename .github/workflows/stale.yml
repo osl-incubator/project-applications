@@ -1,0 +1,30 @@
+name: Stale issues
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/stale@v9
+        with:
+          days-before-stale: 30
+          days-before-close: 30
+          only-labels: "status: needs-info"
+          stale-issue-label: "status: paused"
+          stale-issue-message: |
+            This issue has been waiting for applicant/maintainer information for about 30 days.
+
+            Please provide the missing information so OSL can continue review. If there is no response, the request may be closed as incomplete or paused. You may reapply later.
+          close-issue-message: |
+            Closing this issue as incomplete because OSL did not receive the requested information.
+
+            You are welcome to open a new request after the missing information is available.
+          exempt-issue-labels: "status: approved,status: declined,status: in-review,status: graduated"

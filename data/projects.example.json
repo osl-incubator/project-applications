@@ -1,0 +1,26 @@
+{
+  "projects": [
+    {
+      "name": "Example Project",
+      "slug": "example-project",
+      "stage": "incubation",
+      "repository": "https://github.com/osl-incubator/example-project",
+      "website": "https://osl-incubator.github.io/example-project/",
+      "maintainers": [
+        {
+          "name": "Example Maintainer",
+          "github": "example-maintainer"
+        }
+      ],
+      "license": "BSD-3-Clause",
+      "code_of_conduct": "https://github.com/osl-incubator/example-project/blob/main/CODE_OF_CONDUCT.md",
+      "acknowledgement_required": true,
+      "scientific_review": {
+        "type": "none",
+        "status": "not_applicable",
+        "url": null
+      },
+      "last_reviewed": null
+    }
+  ]
+}

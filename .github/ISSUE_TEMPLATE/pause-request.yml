@@ -1,0 +1,94 @@
+name: Pause request
+description: Request a temporary pause in incubation or review
+title: "Pause request: <project name>"
+labels:
+  - "type: pause-request"
+  - "status: needs-triage"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Maintainers can use this form when a project needs to pause incubation,
+        review, or active contributor direction.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository URL
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for pause
+    validations:
+      required: true
+
+  - type: input
+    id: expected_duration
+    attributes:
+      label: Expected duration
+      description: "Example: 1 month, 3 months, unknown."
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintenance_coverage
+    attributes:
+      label: Maintenance coverage during pause
+      description: Who can respond to urgent issues, security reports, or OSL pings?
+    validations:
+      required: true
+
+  - type: textarea
+    id: contributor_impact
+    attributes:
+      label: Contributor impact
+      description: Should OSL stop directing contributors to this project during the pause?
+    validations:
+      required: true
+
+  - type: textarea
+    id: resume_plan
+    attributes:
+      label: Plan to resume
+    validations:
+      required: true
+
+  - type: dropdown
+    id: remain_listed
+    attributes:
+      label: Should the project remain listed as active?
+      options:
+        - Yes, with a pause note
+        - No, temporarily remove from active lists
+        - Unsure / needs OSL decision
+    validations:
+      required: true
+
+  - type: textarea
+    id: osl_support
+    attributes:
+      label: OSL support needed
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: Maintainers will keep license and Code of Conduct information public during the pause.
+          required: true
+        - label: Maintainers will update OSL if the pause timeline or repository status changes.
+          required: true
+        - label: README/docs acknowledgement will be updated if OSL requests a status note.
+          required: true

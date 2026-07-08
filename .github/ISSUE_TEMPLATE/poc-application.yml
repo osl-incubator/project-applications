@@ -1,0 +1,125 @@
+name: Proof of Concept application
+description: Apply for the OSL Incubator Program PoC stage
+title: "PoC application: <project name>"
+labels:
+  - "type: poc-application"
+  - "status: needs-triage"
+  - "stage: poc"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for applying to the OSL Incubator Program PoC stage.
+
+        PoC is for ideas, prototypes, or early repositories that need validation
+        before becoming full incubated projects.
+
+        OSL incubation does not guarantee funding, contributors, GSoC slots,
+        interns, grants, mentors, external review acceptance, or long-term
+        maintenance.
+
+  - type: input
+    id: project_name
+    attributes:
+      label: Project name
+    validations:
+      required: true
+
+  - type: input
+    id: repository
+    attributes:
+      label: Repository or proposal URL
+      description: Link to the public repository or public proposal repository.
+    validations:
+      required: true
+
+  - type: textarea
+    id: maintainers
+    attributes:
+      label: Maintainers
+      description: List names, GitHub handles, roles, and contact path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem statement
+      description: What problem does the project aim to solve?
+    validations:
+      required: true
+
+  - type: textarea
+    id: users
+    attributes:
+      label: Intended users or beneficiaries
+    validations:
+      required: true
+
+  - type: textarea
+    id: concept
+    attributes:
+      label: Current concept, prototype, or proposal status
+      description: Describe what exists now and what is still uncertain.
+    validations:
+      required: true
+
+  - type: input
+    id: license
+    attributes:
+      label: License link
+      description: Link to the OSI-approved license or explain the planned license.
+    validations:
+      required: true
+
+  - type: input
+    id: code_of_conduct
+    attributes:
+      label: Code of Conduct link
+      description: Link to a Code of Conduct with a reporting path or explain the plan to add one.
+    validations:
+      required: true
+
+  - type: textarea
+    id: initial_tasks
+    attributes:
+      label: Initial tasks or validation questions
+      description: What questions, risks, or tasks should PoC answer first?
+    validations:
+      required: true
+
+  - type: textarea
+    id: exploration_plan
+    attributes:
+      label: 1-3 month exploration plan
+      description: What will you test, build, or validate during PoC?
+    validations:
+      required: true
+
+  - type: textarea
+    id: osl_support
+    attributes:
+      label: Expected OSL support
+      description: What support are you requesting from OSL during PoC?
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: The project uses or will use an OSI-approved open-source license.
+          required: true
+        - label: The project has or will add a public LICENSE file.
+          required: true
+        - label: The project has or will add a Code of Conduct with a reporting path.
+          required: true
+        - label: At least one maintainer is reachable and can participate in PoC.
+          required: true
+        - label: The project can be developed in public and welcome contributors respectfully.
+          required: true
+        - label: If accepted, we will acknowledge OSL PoC/incubation status in README/docs where applicable.
+          required: true
+        - label: I understand OSL does not guarantee GSoC slots, funding, contributors, interns, mentors, grants, external review acceptance, or long-term maintenance.
+          required: true
