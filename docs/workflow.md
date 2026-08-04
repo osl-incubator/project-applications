@@ -10,18 +10,20 @@ and reminders, but OSL reviewers make decisions.
 1. Applicant opens issue using PoC or Incubation template.
 2. Bot applies type/status labels.
 3. Bot posts intake comment with reminders.
-4. OSL reviewer checks completeness.
-5. If incomplete, reviewer adds `status: needs-info`.
-6. Applicant updates request.
-7. Reviewer performs eligibility/due-diligence review.
-8. Reviewer confirms mentor/reviewer capacity.
-9. Decision:
+4. Preliminary-review bot checks public evidence, posts an advisory report, and
+   pings `@xmnlab`.
+5. OSL reviewer verifies the automated findings and checks completeness.
+6. If incomplete, the issue uses `status: needs-info`.
+7. Applicant updates request; the preliminary report is refreshed.
+8. Reviewer performs eligibility/due-diligence review.
+9. Reviewer confirms mentor/reviewer capacity.
+10. Decision:
    - approved for PoC
    - approved for Incubation
    - needs changes
    - declined
    - deferred
-10. If approved:
+11. If approved:
    - issue gets approved label;
    - onboarding checklist is created;
    - website/project list update is prepared when appropriate;
@@ -34,7 +36,8 @@ and reminders, but OSL reviewers make decisions.
 Reviewers should confirm that required fields contain links or clear evidence.
 Applications missing license, Code of Conduct, reachable maintainers, public
 repository/proposal repository, or project purpose should not be approved until
-fixed.
+fixed. Automated findings are leads, not proof; reviewers should follow the
+linked evidence and correct the report when necessary.
 
 ### Due-diligence review
 

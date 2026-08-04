@@ -57,6 +57,7 @@ Run these checks before opening a pull request:
 ```bash
 bash -n scripts/create-labels.sh
 python -m py_compile scripts/*.py
+python -m unittest discover -s tests -v
 python scripts/validate-project-records.py data/projects.example.json
 ```
 

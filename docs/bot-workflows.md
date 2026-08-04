@@ -16,6 +16,64 @@ Responsibilities:
   acknowledgement requirements;
 - optionally add `status: needs-info` if obvious required fields are missing.
 
+## Preliminary-review bot
+
+Triggered when a PoC or Incubation application is opened, edited, or reopened.
+It can also be run manually with an existing issue number.
+
+Responsibilities:
+
+- parse required issue-form sections and confirmations;
+- inspect public GitHub repository metadata without cloning or executing code;
+- report repository visibility, archive status, recent activity, and issue
+  tracker availability;
+- check for standard LICENSE, Code of Conduct, README, CONTRIBUTING, SECURITY,
+  test, and GitHub Actions paths;
+- identify an apparent Code of Conduct reporting path;
+- use the OpenAI Responses API, when configured, to synthesize a
+  schema-constrained advisory assessment of the application answers;
+- update one marked issue comment instead of creating a new comment after every
+  edit;
+- route obviously incomplete forms to `status: needs-info`, otherwise route to
+  `status: in-review`;
+- add `bot: initial-review`, attempt to assign `xmnlab`, and mention `@xmnlab`
+  for required human review.
+
+The model receives only public issue answers, deterministic check results, and
+bounded excerpts from public repository documents. Applicant content is treated
+as untrusted data. The model has no tools and its output cannot directly control
+labels, assignments, or decisions. Applicant repository code is never executed
+by the secret-bearing workflow.
+
+The generated report is advisory. It must not approve, decline, or promise OSL
+support. Maintainer reachability, community safety, legal conclusions, OSL fit,
+scientific-review requirements, reviewer capacity, and lifecycle decisions stay
+with human reviewers.
+
+### Configuration
+
+Configure the following repository setting before expecting AI synthesis:
+
+- Actions secret `OPENAI_API_KEY` — OpenAI Platform API key.
+
+Optional Actions variables:
+
+- `OPENAI_REVIEW_MODEL` — defaults to `gpt-5.6-terra`;
+- `OPENAI_REVIEW_REASONING_EFFORT` — defaults to `low`.
+
+If the secret is absent or the OpenAI API is unavailable, deterministic checks
+still run and the comment explains that AI synthesis was unavailable.
+
+To review an existing application such as issue 1:
+
+```bash
+gh workflow run application-review.yml -f issue_number=1
+```
+
+Keep model choice, prompt changes, and routing rules covered by representative
+fixtures and human evaluation. API usage and spend limits should be monitored at
+the OpenAI project level.
+
 ## Health-check bot
 
 Runs monthly for PoC/Incubation, quarterly for Graduated, and every 2 weeks for

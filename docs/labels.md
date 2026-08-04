@@ -84,6 +84,7 @@ labels with the GitHub CLI.
 ## Bot labels
 
 - `bot: intake`
+- `bot: initial-review`
 - `bot: health-check`
 - `bot: stale`
 - `bot: link-check`

@@ -106,14 +106,16 @@ not accessible to you, contact OSL through the website or email path listed in
 A typical application review includes:
 
 1. Applicant opens an issue using a template.
-2. Bot applies type/stage/status labels and posts an intake reminder.
-3. OSL reviewer checks completeness.
-4. If information is missing, reviewer adds `status: needs-info`.
-5. Applicant updates the issue with links or explanations.
-6. Reviewer performs eligibility and due-diligence review.
-7. OSL confirms mentor/reviewer capacity.
-8. OSL records a decision: approved, needs changes, declined, or deferred.
-9. If approved, onboarding tasks, acknowledgement text, milestones, and website
+2. Intake automation applies type/stage/status labels and posts a reminder.
+3. Preliminary-review automation checks public evidence, posts an advisory
+   report, and requests review from `@xmnlab`.
+4. An OSL reviewer verifies the report and application completeness.
+5. If information is missing, the issue uses `status: needs-info`.
+6. Applicant updates the issue with links or explanations.
+7. Reviewer performs eligibility and due-diligence review.
+8. OSL confirms mentor/reviewer capacity.
+9. OSL records a decision: approved, needs changes, declined, or deferred.
+10. If approved, onboarding tasks, acknowledgement text, milestones, and website
    updates are coordinated.
 
 See [docs/workflow.md](docs/workflow.md) and

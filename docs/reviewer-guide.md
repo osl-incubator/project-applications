@@ -19,16 +19,23 @@ incubation applications and lifecycle reviews.
 
 ## Review steps
 
-1. Confirm the issue template matches the request type.
-2. Check required fields for links and concrete evidence.
-3. Inspect the public repository or proposal repository.
-4. Confirm license, Code of Conduct, maintainer contact, and public discussion
+1. Read the automated preliminary review and open its evidence links.
+2. Confirm the issue template matches the request type.
+3. Check required fields for links and concrete evidence.
+4. Inspect the public repository or proposal repository; do not assume that a
+   green automated presence check establishes quality or suitability.
+5. Confirm license, Code of Conduct, maintainer contact, and public discussion
    path.
-5. Assess alignment with OSL values and program scope.
-6. Confirm reviewer or mentor capacity.
-7. Add labels for missing checks or review areas.
-8. Request missing information, defer, decline, or approve.
-9. Record a decision comment with next steps.
+6. Assess alignment with OSL values and program scope.
+7. Confirm reviewer or mentor capacity.
+8. Add labels for missing checks or review areas.
+9. Request missing information, defer, decline, or approve.
+10. Record a decision comment with next steps.
+
+Automated reports may be wrong or incomplete. In particular, maintainers being
+reachable, a license being legally suitable, a Code of Conduct process being
+safe, scientific claims being valid, and OSL having sufficient capacity require
+human judgment. Never treat `bot: initial-review` as a decision label.
 
 ## Baseline blockers
 

@@ -21,6 +21,9 @@ jobs:
       - name: Python syntax
         run: |
           find scripts -name '*.py' -print -exec python -m py_compile {} \;
+      - name: Unit tests
+        run: |
+          python -m unittest discover -s tests -v
       - name: Validate project records if present
         run: |
           if [ -f data/projects.json ]; then

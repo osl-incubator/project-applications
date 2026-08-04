@@ -1,0 +1,8 @@
+name: osl-project-app
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - nodejs

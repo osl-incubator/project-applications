@@ -30,7 +30,18 @@ jobs:
               });
             }
 
-            if (!labels.includes('status: needs-triage')) {
+            const hasLaterStatus = labels.some(label => [
+              'status: needs-info',
+              'status: in-review',
+              'status: approved',
+              'status: declined',
+              'status: deferred',
+              'status: paused',
+              'status: archived',
+              'status: graduated',
+            ].includes(label));
+
+            if (!labels.includes('status: needs-triage') && !hasLaterStatus) {
               await github.rest.issues.addLabels({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
